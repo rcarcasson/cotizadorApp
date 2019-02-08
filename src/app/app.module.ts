@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { CotizacionesComponent } from './components/cotizaciones/cotizaciones.component';
-import { InicioComponent } from './components/inicio/inicio.component';
 
 // Rutas
 import { APP_ROUTING } from './app.routes';
@@ -15,11 +18,12 @@ import { APP_ROUTING } from './app.routes';
     AppComponent,
     NavbarComponent,
     ProductosComponent,
-    CotizacionesComponent,
-    InicioComponent
+    CotizacionesComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
+    MaterialModule,
     APP_ROUTING
   ],
   providers: [],

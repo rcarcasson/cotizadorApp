@@ -1,22 +1,16 @@
 import { Component } from '@angular/core';
+import { NuevaCotizacionComponent } from './nueva-cotizacion.component';
+import { MatDialog } from '@angular/material';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
 
 export interface Cotizaciones {
   codigo: number;
-  fecha: number;
+  fecha: string;
   referencia: string;
   total: number;
 }
-
-const COTIZACIONES: Cotizaciones[] = [
-  {codigo: 1, fecha: 1, referencia: 'Cotización 1', total: 1},
-  {codigo: 2, fecha: 2, referencia: 'Cotización 2', total: 2},
-  {codigo: 3, fecha: 3, referencia: 'Cotización 3', total: 3},
-  {codigo: 4, fecha: 4, referencia: 'Cotización 4', total: 4},
-  {codigo: 5, fecha: 5, referencia: 'Cotización 5', total: 5},
-  {codigo: 6, fecha: 6, referencia: 'Cotización 6', total: 6},
-  {codigo: 7, fecha: 7, referencia: 'Cotización 7', total: 7},
-  {codigo: 8, fecha: 8, referencia: 'Cotización 8', total: 8}
-];
 
 @Component({
   selector: 'app-cotizaciones',
@@ -25,8 +19,19 @@ const COTIZACIONES: Cotizaciones[] = [
 })
 export class CotizacionesComponent {
   columnas: string[] = ['Código', 'Fecha', 'Referencia', 'Total'];
-  misDatos = COTIZACIONES;
+  private itemsCollection: AngularFirestoreCollection<Cotizaciones>;
+  cotizaciones: Observable<Cotizaciones[]>;
+  public misDatos;
 
-  constructor() { }
+  constructor(public dialog: MatDialog, private afs: AngularFirestore) {
+    this.itemsCollection = afs.collection<Cotizaciones>('cotizaciones');
+    this.cotizaciones = this.itemsCollection.valueChanges();
+    this.misDatos = this.cotizaciones;
+   }
 
+  NuevaCotizacion() {
+    const dialogRef = this.dialog.open(NuevaCotizacionComponent, {
+      width: '250px'
+    });
+  }
 }

@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Nueva cotización</h2>
+<mat-dialog-content>
+    <form [formGroup]="forma">
+        <mat-form-field appearence="standard">
+            <input matInput placeholder="Código" formControlName="codigo" name="codigo">
+        </mat-form-field>
+        <mat-form-field appearence="standard">
+            <input matInput placeholder="Fecha" formControlName="fecha" name="fecha">
+        </mat-form-field>
+
+        <mat-form-field appearence="standard">
+            <input matInput placeholder="Referencia" formControlName="referencia" name="referencia">
+        </mat-form-field>
+
+
+        <mat-form-field appearence="standard">
+            <input matInput placeholder="Total" formControlName="total" name="total">
+        </mat-form-field>
+    </form>
+    <button mat-raised-button color="primary">Crear</button>
+    <button mat-raised-button color="warn">Cerrar</button>
+</mat-dialog-content>

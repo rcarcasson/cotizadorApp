@@ -9,8 +9,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatTableModule} from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [],
@@ -24,7 +25,8 @@ import {MatTableModule} from '@angular/material/table';
     MatDialogModule,
     MatInputModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    BrowserAnimationsModule
   ],
   exports: [
     MatToolbarModule,
@@ -35,7 +37,8 @@ import {MatTableModule} from '@angular/material/table';
     MatDialogModule,
     MatInputModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    BrowserAnimationsModule
   ]
 })
 export class MaterialModule { }

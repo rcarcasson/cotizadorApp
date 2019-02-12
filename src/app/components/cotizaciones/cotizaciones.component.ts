@@ -4,13 +4,9 @@ import { MatDialog } from '@angular/material';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
+import { Cotizaciones } from '../../models/cotizacion.model';
 
-export interface Cotizaciones {
-  codigo: number;
-  fecha: string;
-  referencia: string;
-  total: number;
-}
+
 
 @Component({
   selector: 'app-cotizaciones',
@@ -31,7 +27,7 @@ export class CotizacionesComponent {
 
   NuevaCotizacion() {
     const dialogRef = this.dialog.open(NuevaCotizacionComponent, {
-      width: '250px'
+      width: '350px'
     });
   }
 }

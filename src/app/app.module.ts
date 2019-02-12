@@ -22,6 +22,10 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
+// Servicio
+import { MiServicioService } from 'src/app/services/mi-servicio.service';
+
+
 @NgModule({
   entryComponents: [
     NuevaCotizacionComponent
@@ -42,7 +46,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],
-  providers: [],
+  providers: [MiServicioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
